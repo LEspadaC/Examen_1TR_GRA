@@ -23,12 +23,20 @@ public class Player : MonoBehaviour
         float posX = transform.position.x;
         float posZ = transform.position.z;
 
+        print(posZ);
+
         float desplZ = Input.GetAxis("Vertical");
         float desplX = Input.GetAxis("Horizontal");
 
-        transform.Translate(Vector3.right * Time.deltaTime * speed * desplX);
+        if (posX > -9.5 && posX < 9.5 || posX < -9.5 && desplX > 0 || posX > 9.5 && desplX < 0)
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * speed * desplX);
+        }
 
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * desplZ);
+        if (posZ > -9.5 && posZ < 9.5 || posZ < -9.5 && desplZ > 0 || posZ > 9.5 && desplZ < 0)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * desplZ);
+        }
 
     }
 }
