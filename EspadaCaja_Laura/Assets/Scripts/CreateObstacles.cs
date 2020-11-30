@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreateObstacles : MonoBehaviour
 {
     [SerializeField] GameObject MyObstacle;
-    [SerializeField] Transform RefPos; 
+    [SerializeField] Transform RefPos;
+
+    public int counter;
+
+    [SerializeField] Text CounterText;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +21,8 @@ public class CreateObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-   
+        CounterText.text = "Numero columnas: " + counter;
+
     }
 
     void createObstacle()
@@ -33,7 +39,7 @@ public class CreateObstacles : MonoBehaviour
     IEnumerator ObstacleCorrutine()
     {
         int n;
-        int counter = 0;
+        counter = 0;
 
         for (n = 0; ; n++)
         {   
