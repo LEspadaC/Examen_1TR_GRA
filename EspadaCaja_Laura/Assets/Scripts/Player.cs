@@ -23,8 +23,6 @@ public class Player : MonoBehaviour
         float posX = transform.position.x;
         float posZ = transform.position.z;
 
-        print(posZ);
-
         float desplZ = Input.GetAxis("Vertical");
         float desplX = Input.GetAxis("Horizontal");
 

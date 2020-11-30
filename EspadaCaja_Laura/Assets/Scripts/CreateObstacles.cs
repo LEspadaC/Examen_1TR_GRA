@@ -33,10 +33,29 @@ public class CreateObstacles : MonoBehaviour
     IEnumerator ObstacleCorrutine()
     {
         int n;
+        int counter = 0;
+
         for (n = 0; ; n++)
-        {          
-            createObstacle();
-            yield return new WaitForSeconds(1);
+        {   
+            if(counter <= 5)
+            {
+                createObstacle();
+                counter++;
+                yield return new WaitForSeconds(2);
+            }
+            else if(counter > 5 && counter <= 10)
+            {
+                createObstacle();
+                counter++;
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                createObstacle();
+                counter++;
+                yield return new WaitForSeconds(0.5f);
+            }
+
         }
     }
 }
